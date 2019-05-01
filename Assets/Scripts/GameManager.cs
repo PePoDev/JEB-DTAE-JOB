@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,8 +33,13 @@ public class GameManager : MonoBehaviour
 	public void NextPage()
 	{
 		currentPhase++;
-		ChangeRecheck(currentPhase - 4);
 		SwitchPage(currentPhase);
+		StartCoroutine(WaitToChangeSprite());
+		IEnumerator WaitToChangeSprite()
+		{
+			yield return new WaitForSeconds(1.5f);
+			ChangeRecheck(currentPhase - 4);
+		}
 	}
 	public void SwitchPage(int PageIdx)
 	{
