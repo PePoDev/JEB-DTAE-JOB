@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour
 	public Image BackgroundFade;
 
 	private Animator animator;
+	private int currentPage;
 
 	private void Start()
 	{
 		animator = GetComponent<Animator>();
+		currentPage = 1;
 	}
 
 	private void Update()
@@ -19,11 +21,24 @@ public class GameManager : MonoBehaviour
 	}
 	public void SwitchPage(int PageIdx)
 	{
-		DOTween.Kill(BackgroundFade);
-		animator.SetInteger("page", PageIdx);
-	}
-	public void FadeBackground(float alpha)
-	{
-		BackgroundFade.DOFade(alpha, 2f);
+		if (currentPage != PageIdx)
+		{
+			animator.SetInteger("page", PageIdx);
+			currentPage = PageIdx;
+
+			var alpha = 0f;
+			DOTween.Kill(BackgroundFade);
+			switch (PageIdx)
+			{
+				case 1:
+					alpha = 0f;
+					break;
+				case 2:
+				case 3:
+					alpha = 1f;
+					break;
+			}
+			BackgroundFade.DOFade(alpha, 2f);
+		}
 	}
 }
