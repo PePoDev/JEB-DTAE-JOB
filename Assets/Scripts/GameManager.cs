@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 	public void PlayPhase4()
 	{
 		phase4.SetActive(true);
+		phase4.GetComponent<VideoPlayer>().url = System.IO.Path.Combine(Application.streamingAssetsPath, "v.mp4");
 		phase4.GetComponent<VideoPlayer>().Play();
 	}
 }
