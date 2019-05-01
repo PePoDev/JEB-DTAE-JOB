@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
 	public Image ImageHead;
 	public Sprite[] headSprite;
 	public Animator phase2_Animator;
+
+	public GameObject phase4;
 
 	private Animator animator;
 	private int currentPage;
@@ -98,5 +101,10 @@ public class GameManager : MonoBehaviour
 	public void PlayPhase2()
 	{
 		phase2_Animator.SetTrigger("new");
+	}
+	public void PlayPhase4()
+	{
+		phase4.SetActive(true);
+		phase4.GetComponent<VideoPlayer>().Play();
 	}
 }
