@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public Toggle[] checkListResult;
     public GameObject arrowOnVideoPhase3;
 
+    public bool inAnimatePhase2 { set; get; } = false;
+
     private Animator animator;
     private int currentPage;
     private int currentPhase;
@@ -138,6 +140,22 @@ public class GameManager : MonoBehaviour
         checkListResult[0].transform.parent.gameObject.SetActive(true);
         ImageRecheck.overrideSprite = recheckSprite[0];
         ImageRecheck.SetAllDirty();
+        ImagePopup.color = new Color(1f, 1f, 1f, 0f);
+        ImagePopup.gameObject.SetActive(false);
+        ImagePopup.overrideSprite = popupSprite[0];
+        ImagePopup.SetAllDirty();
+
+        foreach (Toggle toggle in checkListResult)
+        {
+            toggle.isOn = false;
+        }
+    }
+    public void ResetPhase2Animtor()
+    {
+        if (inAnimatePhase2)
+        {
+            phase2_Animator.SetTrigger("exit");
+        }
     }
     public void NextHead(int i)
     {
@@ -148,6 +166,7 @@ public class GameManager : MonoBehaviour
 
         if (currentHead == -1)
         {
+            inAnimatePhase2 = true;
             currentHead = i;
             phase2_head.overrideSprite = Phase2_Head[currentHead];
             phase2_detail.overrideSprite = Phase2_DetailPopup[currentHead];

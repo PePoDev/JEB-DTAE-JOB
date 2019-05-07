@@ -3666,6 +3666,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toggle (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4268228452480287225, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3770,21 +3785,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268228452480287224, guid: 81d6d3515b33e304ab05c7147a4ad8e3,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d6d3515b33e304ab05c7147a4ad8e3, type: 3}
@@ -4312,7 +4312,6 @@ GameObject:
   - component: {fileID: 936015423}
   - component: {fileID: 936015421}
   - component: {fileID: 936015419}
-  - component: {fileID: 936015420}
   m_Layer: 5
   m_Name: Phase4
   m_TagString: Untagged
@@ -4368,34 +4367,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &936015420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936015418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13c6c5bd42c4234385a60d37d3662ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnVideoEnd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 196749889}
-        m_MethodName: setColorToTransparent
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 683394903}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!328 &936015421
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -5615,6 +5586,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: exit
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 196749889}
+        m_MethodName: set_inAnimatePhase2
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
