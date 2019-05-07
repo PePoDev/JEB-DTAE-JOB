@@ -176,6 +176,7 @@ public class GameManager : MonoBehaviour
 
         currentHead = i;
         phase2_Animator.SetTrigger("endRe");
+        StopAllHeadAudio();
         StartCoroutine(NextHead());
 
         IEnumerator NextHead()
@@ -186,8 +187,16 @@ public class GameManager : MonoBehaviour
             phase2_Animator.SetTrigger("new");
         }
     }
+    private void StopAllHeadAudio()
+    {
+        foreach (var item in phase2_audio_head)
+        {
+            item.Stop();
+        }
+    }
     public void PlayHeadAudio(int index)
     {
+        StopAllHeadAudio();
         phase2_audio_head[(currentHead * (phase2_audio_head.Length / 3)) + index].Play();
     }
     public void CheckSum()
